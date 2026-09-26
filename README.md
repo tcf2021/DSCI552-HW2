@@ -1,22 +1,21 @@
 # DSCI 552 - Homework 2
 
-Name: Chengfeng Tang  
-GitHub username: tcf2021  
-USC ID: 5488902262
+**Name:** Chengfeng Tang  
+**GitHub username:** tcf2021  
+**USC ID:** 5488902262
 
-The executed assignment is `notebook/Tang_Chengfeng_HW2.ipynb`.
-The PDF follows the same question-by-question order, including code and outputs.
+This repository contains my solutions to Homework 2: regression analysis of the Combined Cycle Power Plant dataset and ISLR exercises 2.4.1 and 2.4.7. The notebook includes my answers, code, plots, and executed outputs.
 
 ## Files
 
-- `notebook/Tang_Chengfeng_HW2.ipynb`: answers, code, plots, and saved outputs.
-- `data/CCPP/Folds5x2_pp.xlsx`: original dataset workbook; only Sheet1 is used.
+- `notebook/Tang_Chengfeng_HW2.ipynb`: complete assignment with saved outputs.
+- `data/CCPP/Folds5x2_pp.xlsx`: original dataset; I used Sheet1 only.
 - `data/CCPP/Readme.txt`: original dataset documentation and citations.
 - `requirements.txt`: Python dependencies.
-- `reports/Tang_Chengfeng_HW2.pdf`: PDF copy.
-- `latex/`: LaTeX source and figure files.
+- `reports/Tang_Chengfeng_HW2.pdf`: PDF version of the assignment.
+- `latex/`: LaTeX source and figures for the PDF.
 
-## Run locally
+## Running the notebook
 
 From the repository root:
 
@@ -26,33 +25,12 @@ cd notebook
 jupyter notebook Tang_Chengfeng_HW2.ipynb
 ```
 
-Restart the kernel, run all cells in order, and save the notebook with its outputs.
-The data path is relative to `notebook/`: `../data/CCPP/Folds5x2_pp.xlsx`.
-The notebook needs no network connection after dependencies are installed.
+The cells can be run sequentially from a fresh kernel. The notebook loads the data using the relative path `../data/CCPP/Folds5x2_pp.xlsx`.
 
-Parts (b)-(g) use all observations. Parts (h)-(j) share a 70%/30% split with
-`random_state=42`. Normalization and variable selection use training data only.
-KNN uses uniform weights and Euclidean distance. The normalized version uses
-min-max scaling. All observations, including repeated records, are retained.
-The reported minimum KNN test error uses the test set to choose k, as in the
-assignment comparison; it is not an independent final evaluation.
+## Methods
 
-## GitHub submission
+I used all observations for parts (b)-(g). For parts (h)-(j), I used the same 70% training and 30% test split with `random_state=42`. Scaling parameters and variable selection were fitted using the training set only.
 
-Create your own repository under `tcf2021`, using the visibility and TA access
-required by the course. Place the contents of this project directly in the
-repository root; do not upload only the ZIP file. Check that the notebook,
-data, and requirements file appear on GitHub and that notebook outputs display.
+I used a significance level of 0.05 and preserved model hierarchy during variable selection. KNN regression uses Euclidean distance and uniform weights; the normalized version uses min-max scaling. I retained all observations, including repeated records. I selected k by test MSE, so the reported minimum KNN test error is a model-selection result rather than an independent final evaluation.
 
-If using Git locally, replace `YOUR_REPOSITORY` with the repository name:
-
-```bash
-git init
-git add .
-git commit -m "Complete DSCI 552 Homework 2"
-git branch -M main
-git remote add origin https://github.com/tcf2021/YOUR_REPOSITORY.git
-git push -u origin main
-```
-
-No GitHub repository has been created or submitted by this file package itself.
+References are listed at the end of the notebook.
